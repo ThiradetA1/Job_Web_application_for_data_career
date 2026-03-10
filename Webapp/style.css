@@ -1,6 +1,6 @@
 * {
 font-family: "Mitr", sans-serif;
-  font-weight: 350;
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -137,3 +137,43 @@ body {
     margin-left: 20px;
 }
 
+/* กล่องครอบปุ่มเปลี่ยนหน้า */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    gap: 8px;
+}
+
+/* สไตล์ปุ่มตัวเลข */
+.page-btn {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.page-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* สไตล์ปุ่มหน้าที่กำลังเปิดอยู่ (Active) */
+.page-btn.active {
+    background-color: #20c997;
+    color: white;
+    border-color: #20c997;
+    font-weight: bold;
+}
+
+/* สไตล์สำหรับจุด ... */
+.page-dots {
+    padding: 8px;
+    color: #777;
+    font-weight: bold;
+}

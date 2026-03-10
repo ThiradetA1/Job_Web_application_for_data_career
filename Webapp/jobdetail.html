@@ -23,6 +23,30 @@
         
         .back-btn { display: inline-block; margin-top: 30px; text-decoration: none; color: #007bff; font-weight: bold; }
         .back-btn:hover { text-decoration: underline; }
+            .apply-btn {
+    background-color: #90d8d8; /* สีฟ้าอ่อนคล้ายๆ หน้าแรกของคุณ */
+    color: #333;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 15px;
+    margin-top: 30px;
+    transition: background-color 0.3s;
+}
+
+.apply-btn:hover {
+    background-color: #76c0c0; /* สีเข้มขึ้นนิดนึงตอนเอาเมาส์ชี้ */
+}
+
+/* จัดกลุ่มปุ่มให้อยู่ด้วยกัน */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;}
+    
     </style>
 </head>
 <body>
@@ -53,8 +77,15 @@
                 </div>
         </div>
         
-        <a href="index.html" class="back-btn">⬅ กลับไปหน้าแรก</a>
+        <div class="action-buttons">
+            <button class="apply-btn" onclick="alert('ระบบสมัครงานกำลังอยู่ในช่วงพัฒนาจ้า 🚀')">Apply Now</button>
+            <a href="index.html" class="back-btn">⬅ กลับไปหน้าแรก</a>
+        </div>
+        
+    </div> 
+
     </div>
+
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
