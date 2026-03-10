@@ -1,6 +1,6 @@
 import pandas as pd
 
-csv_file_path = 'retail_sales_dataset.csv'
+csv_file_path = 'AI Job Market Dataset.csv'
 json_file_path = 'data.json'
 
 df = pd.read_csv(csv_file_path)
