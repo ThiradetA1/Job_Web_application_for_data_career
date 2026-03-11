@@ -1,0 +1,390 @@
+/* ===================================================
+   DESIGN SYSTEM — AI & Data Science Job Market
+   Tone: Warm minimal · Ink on paper · Human
+=================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&family=Lora:wght@400;500;600&display=swap');
+
+/* ── Tokens ───────────────────────────────────────── */
+:root {
+  --bg:        #f2f0eb;
+  --bg2:       #eceae4;
+  --surface:   #ffffff;
+  --surface2:  #f7f6f2;
+  --border:    #e0ddd6;
+  --border2:   #ccc9c0;
+
+  --ink:       #1c1a17;
+  --ink2:      #5a5750;
+  --ink3:      #9e9b93;
+  --ink4:      #c4c1b8;
+
+  --accent:    #2e6ef7;   /* blue */
+  --green:     #16a34a;
+  --amber:     #b45309;
+  --red:       #dc2626;
+  --teal:      #0d9488;
+
+  --radius:    10px;
+  --radius-s:  6px;
+  --shadow:    0 1px 2px rgba(0,0,0,.05), 0 3px 12px rgba(0,0,0,.04);
+  --shadow-h:  0 2px 6px rgba(0,0,0,.09), 0 8px 28px rgba(0,0,0,.07);
+
+  --font-body: 'DM Sans', 'Sarabun', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-disp: 'Lora', Georgia, serif;
+}
+
+/* ── Reset ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Nav ─────────────────────────────────────────── */
+.nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.nav-mark {
+  width: 32px;
+  height: 32px;
+  background: var(--ink);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-mark svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nav-name {
+  font-family: var(--font-disp);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -.2px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.nav-links a {
+  padding: 6px 14px;
+  border-radius: var(--radius-s);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink2);
+  text-decoration: none;
+  transition: background .15s, color .15s;
+}
+
+.nav-links a:hover {
+  background: var(--bg2);
+  color: var(--ink);
+}
+
+.nav-links a.active {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* ── Page wrapper ────────────────────────────────── */
+.page {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 40px 28px 64px;
+  flex: 1;
+}
+
+/* ── Page header ─────────────────────────────────── */
+.page-header {
+  margin-bottom: 32px;
+}
+
+.page-header .eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 8px;
+}
+
+.page-header h1 {
+  font-family: var(--font-disp);
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -.4px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.page-header .sub {
+  font-size: 14px;
+  color: var(--ink2);
+}
+
+/* ── Surface card ────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-h);
+}
+
+/* ── Job card ────────────────────────────────────── */
+.job-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow .2s, transform .2s;
+  position: relative;
+}
+
+.job-card:hover {
+  box-shadow: var(--shadow-h);
+  transform: translateY(-2px);
+}
+
+.job-card .job-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.job-card .job-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.pill-industry {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.pill-remote {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.pill-country {
+  background: var(--bg2);
+  color: var(--ink2);
+  border: 1px solid var(--border);
+}
+
+.job-card .job-salary {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.job-card .job-year {
+  font-size: 11px;
+  color: var(--ink3);
+}
+
+.apply-btn {
+  align-self: flex-start;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 7px 16px;
+  border-radius: var(--radius-s);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background .15s, opacity .15s;
+}
+
+.apply-btn:hover {
+  background: #333;
+}
+
+/* ── Count / summary bar ─────────────────────────── */
+.summary-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 0 2px;
+}
+
+.summary-count {
+  font-size: 13px;
+  color: var(--ink2);
+}
+
+.summary-count strong {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--ink);
+}
+
+/* ── Card grid ───────────────────────────────────── */
+#card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+/* ── Pagination ──────────────────────────────────── */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin: 40px 0;
+}
+
+.page-btn {
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink2);
+  cursor: pointer;
+  border-radius: var(--radius-s);
+  font-size: 13px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  transition: all .15s;
+}
+
+.page-btn:hover {
+  border-color: var(--border2);
+  background: var(--bg2);
+  color: var(--ink);
+}
+
+.page-btn.active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.page-dots {
+  padding: 7px 4px;
+  color: var(--ink3);
+  font-size: 13px;
+}
+
+/* ── Footer ──────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  padding: 20px 28px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink3);
+}
+
+/* ── Loader ──────────────────────────────────────── */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: opacity .4s;
+}
+
+.loader-ring {
+  width: 36px;
+  height: 36px;
+  border: 2.5px solid var(--border2);
+  border-top-color: var(--ink);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  margin-bottom: 12px;
+}
+
+.loader-txt {
+  font-size: 12px;
+  color: var(--ink3);
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 600px) {
+  .nav-name { display: none; }
+  .page { padding: 24px 16px 48px; }
+  .nav-inner { padding: 0 16px; }
+  .footer { padding: 16px; }
+}

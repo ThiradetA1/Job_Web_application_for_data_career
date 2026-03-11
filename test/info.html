@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Information — Job Market Dataset</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    .info-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 76px;
+    }
+
+    .sidebar-nav {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar-nav .s-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink3);
+      padding: 0 8px;
+      margin-bottom: 8px;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 7px 10px;
+      border-radius: var(--radius-s);
+      font-size: 13px;
+      color: var(--ink2);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background .15s, color .15s;
+    }
+
+    .sidebar-nav a:hover {
+      background: var(--bg2);
+      color: var(--ink);
+    }
+
+    /* Article */
+    .article { animation: rise .4s ease both; }
+
+    .section-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 6px;
+    }
+
+    .section-block h2 {
+      font-family: var(--font-disp);
+      font-size: 19px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      letter-spacing: -.2px;
+    }
+
+    .section-block p {
+      font-size: 14px;
+      color: var(--ink2);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .section-block p:last-child { margin-bottom: 0; }
+
+    /* Role cards */
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .role-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-s);
+      padding: 16px 18px;
+      background: var(--surface2);
+    }
+
+    .role-card h3 {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .role-card p {
+      font-size: 12px;
+      color: var(--ink3);
+      margin-bottom: 10px;
+    }
+
+    .role-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .role-tag {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--ink2);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* Insight rows */
+    .insight-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .insight-row:last-child { border-bottom: none; }
+
+    .insight-num {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      flex-shrink: 0;
+      width: 56px;
+    }
+
+    .insight-text {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .info-grid { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .role-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-mark">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <span class="nav-name">Job Market Dataset</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="info.html" class="active">Information</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE -->
+<div class="page">
+  <div class="page-header">
+    <div class="eyebrow">Guide</div>
+    <h1>Data Careers Overview</h1>
+    <div class="sub">Understanding roles, skills, and the job market</div>
+  </div>
+
+  <div class="info-grid">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-nav">
+        <div class="s-label">On this page</div>
+        <a href="#roles">Types of Roles</a>
+        <a href="#skills">Key Skills</a>
+        <a href="#trends">Market Trends</a>
+        <a href="#salary">Salary Insights</a>
+        <a href="#why">Why Data</a>
+      </div>
+    </aside>
+
+    <!-- Article -->
+    <div class="article">
+
+      <!-- Roles -->
+      <div class="section-block" id="roles">
+        <div class="section-eyebrow">Careers</div>
+        <h2>Types of Data Roles</h2>
+        <div class="role-grid">
+          <div class="role-card">
+            <h3>Data Analyst</h3>
+            <p>รวบรวม วิเคราะห์ และแปลความหมายข้อมูลเพื่อช่วยตัดสินใจทางธุรกิจ</p>
+            <div class="role-tags">
+              <span class="role-tag">SQL</span>
+              <span class="role-tag">Excel</span>
+              <span class="role-tag">Tableau</span>
+              <span class="role-tag">Python</span>
+            </div>
+          </div>
+          <div class="role-card">
+            <h3>Data Scientist</h3>
+            <p>วิเคราะห์ข้อมูลขั้นสูง สร้างโมเดล ML และทำ Data Prediction</p>
+            <div class="role-tags">
+              <span class="role-tag">Python</span>
+              <span class="role-tag">ML</span>
+              <span class="role-tag">Statistics</span>
+            </div>
+          </div>
+          <div class="role-card">
+            <h3>ML Engineer</h3>
+            <p>พัฒนาและ deploy โมเดล Machine Learning ไปใช้งานจริงในระบบ</p>
+            <div class="role-tags">
+              <span class="role-tag">PyTorch</span>
+              <span class="role-tag">Deep Learning</span>
+              <span class="role-tag">MLOps</span>
+            </div>
+          </div>
+          <div class="role-card">
+            <h3>Data Engineer</h3>
+            <p>ออกแบบและพัฒนาระบบจัดเก็บและประมวลผลข้อมูลขนาดใหญ่</p>
+            <div class="role-tags">
+              <span class="role-tag">SQL</span>
+              <span class="role-tag">Spark</span>
+              <span class="role-tag">Pipelines</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="section-block" id="skills">
+        <div class="section-eyebrow">Toolkit</div>
+        <h2>Key Skills</h2>
+        <p>ทักษะที่สำคัญในสายงาน Data ครอบคลุมทั้งด้าน Programming, Analysis และ Tools ที่ใช้ในการทำงานจริง</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">R</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">Machine Learning</span>
+          <span class="skill-pill">Data Visualization</span>
+          <span class="skill-pill">Statistical Analysis</span>
+          <span class="skill-pill">Tableau</span>
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">Jupyter</span>
+          <span class="skill-pill">TensorFlow</span>
+          <span class="skill-pill">Cloud Platforms</span>
+        </div>
+      </div>
+
+      <!-- Trends -->
+      <div class="section-block" id="trends">
+        <div class="section-eyebrow">Market</div>
+        <h2>Job Market Trends</h2>
+        <p>สายงาน Data Science และ Analytics มีแนวโน้มเติบโตต่อเนื่อง เนื่องจากองค์กรต้องการใช้ข้อมูลในการตัดสินใจมากขึ้น</p>
+        <div class="insight-row">
+          <div class="insight-num">01</div>
+          <div class="insight-text">ความต้องการ Data Scientist และ Data Analyst เพิ่มขึ้นทุกปี ทั้งในประเทศไทยและทั่วโลก</div>
+        </div>
+        <div class="insight-row">
+          <div class="insight-num">02</div>
+          <div class="insight-text">ทักษะ Python และ Machine Learning เป็นที่ต้องการสูงในเกือบทุกตำแหน่ง</div>
+        </div>
+        <div class="insight-row">
+          <div class="insight-num">03</div>
+          <div class="insight-text">องค์กรขนาดใหญ่ลงทุนด้าน Data Infrastructure และ AI อย่างต่อเนื่อง</div>
+        </div>
+        <div class="insight-row">
+          <div class="insight-num">04</div>
+          <div class="insight-text">Remote work เป็นที่นิยมในสายงาน Data ทำให้มีโอกาสทำงานข้ามประเทศมากขึ้น</div>
+        </div>
+      </div>
+
+      <!-- Salary -->
+      <div class="section-block" id="salary">
+        <div class="section-eyebrow">Compensation</div>
+        <h2>Salary Insights</h2>
+        <p>เงินเดือนในสายงาน Data แตกต่างกันตามประสบการณ์ ประเทศ ขนาดบริษัท และทักษะเฉพาะทาง โดยทั่วไปเป็นสายงานที่มีเงินเดือนค่อนข้างสูงเมื่อเทียบกับสาขาอื่น</p>
+        <p>ดูข้อมูล Salary จาก dataset ได้ใน <a href="dashboard.html" style="color:var(--ink);font-weight:500">Dashboard</a></p>
+      </div>
+
+      <!-- Why -->
+      <div class="section-block" id="why">
+        <div class="section-eyebrow">Overview</div>
+        <h2>Why Choose a Data Career</h2>
+        <p>สายงาน Data เป็นหนึ่งในอาชีพที่น่าสนใจและมีอนาคตในยุคปัจจุบัน ด้วยเหตุผลหลายประการ</p>
+        <div class="insight-row">
+          <div class="insight-num" style="font-size:14px;font-family:var(--font-body);width:auto;margin-right:4px;color:var(--ink3)">—</div>
+          <div class="insight-text">ความต้องการสูงในตลาดแรงงานทั้งในและต่างประเทศ</div>
+        </div>
+        <div class="insight-row">
+          <div class="insight-num" style="font-size:14px;font-family:var(--font-body);width:auto;margin-right:4px;color:var(--ink3)">—</div>
+          <div class="insight-text">โอกาสทำงานในหลากหลายอุตสาหกรรมและ sector</div>
+        </div>
+        <div class="insight-row">
+          <div class="insight-num" style="font-size:14px;font-family:var(--font-body);width:auto;margin-right:4px;color:var(--ink3)">—</div>
+          <div class="insight-text">เงินเดือนและการเติบโตในสายอาชีพที่ดี</div>
+        </div>
+        <div class="insight-row">
+          <div class="insight-num" style="font-size:14px;font-family:var(--font-body);width:auto;margin-right:4px;color:var(--ink3)">—</div>
+          <div class="insight-text">พัฒนาทักษะวิเคราะห์ข้อมูลและเทคโนโลยีที่ทันสมัย</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  AI & Data Science Job Market Dataset &mdash; for educational use
+</footer>
+
+<style>
+  /* reuse skill-pill from style.css context */
+  .skill-pill {
+    display: inline-block;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: var(--radius-s);
+    font-family: var(--font-mono);
+  }
+</style>
+</body>
+</html>

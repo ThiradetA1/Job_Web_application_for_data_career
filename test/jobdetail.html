@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Detail — Job Market Dataset</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    .detail-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .detail-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      box-shadow: var(--shadow);
+      animation: rise .4s ease both;
+    }
+
+    .detail-title {
+      font-family: var(--font-disp);
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: -.3px;
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .detail-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 24px;
+    }
+
+    .detail-item .label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 3px;
+    }
+
+    .detail-item .value {
+      font-size: 14px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .detail-item .value.mono {
+      font-family: var(--font-mono);
+      font-size: 18px;
+    }
+
+    .skills-wrap {
+      margin-top: 4px;
+    }
+
+    .skill-pill {
+      display: inline-block;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: var(--radius-s);
+      margin-right: 6px;
+      margin-bottom: 6px;
+      font-family: var(--font-mono);
+    }
+
+    .action-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: var(--radius-s);
+      font-size: 13px;
+      font-weight: 500;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: background .15s;
+    }
+
+    .btn-primary:hover { background: #333; }
+
+    .btn-ghost {
+      font-size: 13px;
+      color: var(--ink2);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color .15s;
+    }
+
+    .btn-ghost:hover { color: var(--ink); }
+
+    @media (max-width: 540px) {
+      .detail-card { padding: 24px 20px; }
+      .detail-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-mark">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <span class="nav-name">Job Market Dataset</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="info.html">Information</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE -->
+<div class="page">
+  <div class="detail-wrap">
+    <div class="page-header" style="margin-bottom:20px">
+      <div class="eyebrow">Job Detail</div>
+    </div>
+
+    <div class="detail-card" id="detail-card">
+      <div class="detail-title" id="job-title">Loading...</div>
+
+      <div class="detail-pills" id="detail-pills"></div>
+
+      <div class="divider"></div>
+
+      <div class="detail-grid">
+        <div class="detail-item">
+          <div class="label">Salary (USD / year)</div>
+          <div class="value mono" id="salary">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="label">Experience Level</div>
+          <div class="value" id="exp-level">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="label">Years of Experience</div>
+          <div class="value" id="years-exp">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="label">Education</div>
+          <div class="value" id="edu-level">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="label">Company Size</div>
+          <div class="value" id="company-size">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="label">Country</div>
+          <div class="value" id="country">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="label">Job Openings</div>
+          <div class="value" id="openings">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="label">Posted</div>
+          <div class="value" id="posted-date">—</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="detail-item">
+        <div class="label">Required Skills</div>
+        <div class="skills-wrap" id="skills-container" style="margin-top:10px">—</div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn-primary" onclick="alert('ระบบสมัครงานกำลังพัฒนา')">Apply Now</button>
+        <a href="index.html" class="btn-ghost">Back to listings</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  AI & Data Science Job Market Dataset &mdash; for educational use
+</footer>
+
+<script>
+const jobId = new URLSearchParams(window.location.search).get('id');
+
+if (jobId) {
+  fetch('data.json')
+    .then(r => { if (!r.ok) throw new Error('Cannot load data'); return r.json(); })
+    .then(data => {
+      const job = data.find(item => String(item.job_id) === jobId);
+      if (!job) { document.getElementById('job-title').textContent = 'Job not found'; return; }
+
+      document.title = `${job.job_title} — Job Market Dataset`;
+      document.getElementById('job-title').textContent = job.job_title;
+
+      // Pills
+      document.getElementById('detail-pills').innerHTML = `
+        <span class="pill pill-industry">${job.company_industry}</span>
+        <span class="pill pill-remote">${job.remote_type}</span>
+        <span class="pill pill-country" style="background:var(--bg2);border:1px solid var(--border);color:var(--ink2)">Urgency: ${job.hiring_urgency || 'N/A'}</span>
+      `;
+
+      // Fields
+      document.getElementById('salary').textContent     = '$' + (job.salary ? job.salary.toLocaleString() : '—');
+      document.getElementById('exp-level').textContent  = job.experience_level || '—';
+      document.getElementById('years-exp').textContent  = job.years_experience != null ? job.years_experience + ' yrs' : '—';
+      document.getElementById('edu-level').textContent  = job.education_level || '—';
+      document.getElementById('company-size').textContent = job.company_size || '—';
+      document.getElementById('country').textContent    = job.country || '—';
+      document.getElementById('openings').textContent   = job.job_openings != null ? job.job_openings + ' positions' : '—';
+      document.getElementById('posted-date').textContent = `${job.job_posting_month}/${job.job_posting_year}`;
+
+      // Skills
+      const skillMap = {
+        skills_python: 'Python',
+        skills_sql: 'SQL',
+        skills_ml: 'Machine Learning',
+        skills_deep_learning: 'Deep Learning',
+        skills_cloud: 'Cloud'
+      };
+      const skillsHTML = Object.entries(skillMap)
+        .filter(([k]) => job[k] === 1)
+        .map(([, name]) => `<span class="skill-pill">${name}</span>`)
+        .join('');
+      document.getElementById('skills-container').innerHTML = skillsHTML || '<span style="color:var(--ink3);font-size:13px">No specific skills listed</span>';
+    })
+    .catch(err => {
+      document.getElementById('job-title').textContent = 'Error loading job';
+    });
+} else {
+  document.getElementById('job-title').textContent = 'No job ID provided';
+}
+</script>
+</body>
+</html>
